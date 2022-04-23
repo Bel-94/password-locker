@@ -3,8 +3,24 @@ class Cridentials:
     Class that generates the users cridentials
     '''
     cridential_list = []
+    user_cridentials_list = []
 
-    def _init_(self,)
+    @classmethod
+    def check_user(cls,first_name,password:
+        # The above 👆 method is for checking if the name and password entered match match entries in the users list
+
+        curre_user = ''
+        for user in User.user_list:
+            if (user.firstname == firstname and user.password):
+                current_user = user.first_name
+        return curre_user
+    def _init_(self,user_name, site_name, account_name, password):
+        # This method defines the properties of each user
+
+        self.user_name = user_name
+        self.site_name = site_name
+        self.account_name = account_name
+        self.password = password
 
 
 
@@ -15,5 +31,5 @@ class Cridentials:
 
         Cridentials.cridential_list.append(self)
         '''
-        The append method is for adding new username or password that the user may create
+        A method for creating new deails about the user
         '''
