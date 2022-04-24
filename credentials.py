@@ -22,3 +22,23 @@ class Credential:
         '''
         A method for creating new deails about the user
         '''
+
+    def delete_credential(self):
+        Credential.credential_list.remove(self)
+
+    @classmethod
+    def find_by_name(cls,site_name):
+        for credential in cls.credential_list:
+            if credential.site_name == site_name:
+                return credential
+
+    @classmethod
+    def credential_exist(cls,name):
+        for credential in cls.credential_list:
+            if credential.site_name == name:
+                return True 
+        return False
+
+    @classmethod
+    def display_credentials(cls):
+        return cls.credential_list
