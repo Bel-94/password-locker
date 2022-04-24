@@ -1,5 +1,5 @@
 import unittest
-# import pyperclip
+import pyperclip
 from user import User
 from credentials import Credential
 
@@ -15,6 +15,9 @@ class TestUser(unittest.TestCase):
         # '''
 
         self.new_user = User("Belinda", "Ntinyari", "pass254")
+
+    def tearDown(self):
+        User.user_list = []
 
     def test_init(self):
         # '''
@@ -38,7 +41,10 @@ class TestCredential(unittest.TestCase):
     def setUp(self):
         self.new_credentials = Credential("Bel", "twitter", "bel254", "passcheck" )
 
-    def test_credentials_instance(self):
+    def tearDown(self):
+        Credential.credential_list = []
+
+    def test_init(self):
         self.assertEqual(self.new_credentials.user_name, "Bel")
         self.assertEqual(self.new_credentials.site_name, "twitter")
         self.assertEqual(self.new_credentials.account_name, "bel254")
@@ -54,8 +60,16 @@ class TestCredential(unittest.TestCase):
         new_test_credential.save_credential()
         self.assertEqual(len(Credential.credential_list),2)
 
-    def tearDown(self):
-        Credential.credential_list = []
+
+    def test_delete_credential(self):
+        self.new_credentials.save_credential()
+        new_test_credential = Credential("Myles", "instagram", "mine", "pamine")
+        new_test_credential.save_credential()
+        bel_test_credentials = Credential("Myles", "instagram", "mine", "pamine")
+        bel_test_credentials.save_credential()
+
+        self.new_credentials.delete_credential()
+        self.assertEqual(len(Credential.credential_list), 2)
         
     def test_find_credential_by_name(self):
         self.new_credentials.save_credential()

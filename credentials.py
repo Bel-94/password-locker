@@ -4,7 +4,7 @@ class Credential:
     # '''
     credential_list = []
 
-    def _init_(self, user_name, site_name, account_name, password)
+    def _init_(self, user_name, site_name, account_name, password):
 
         self.user_name = user_name
         self.site_name = site_name
@@ -42,3 +42,9 @@ class Credential:
     @classmethod
     def display_credentials(cls):
         return cls.credential_list
+
+
+    @classmethod
+    def copy_password(cls,name):
+        credential_found = Credential.find_credential_by_name(name)
+        pyperclip.copy(credential_found.password)
