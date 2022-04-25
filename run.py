@@ -1,5 +1,5 @@
 #!/usr/bin/env python3.8
-from contact import Contact
+from credentials import Credential
 
 def create_new_credential(username,site_name,account_name,password):
     '''
@@ -28,13 +28,13 @@ def find_credential(name):
 
 def check_existing_credentials():
     '''
-    Function that check if a contact exists with that number and return a Boolean
+    Function that check if a credential exists with that name and return a Boolean
     '''
     return Credential.credential_exist()
 
 def display_credentials():
     '''
-    Function that returns all the saved contacts
+    Function that returns all the saved credentials
     '''
     return Credential.display_credentials()
 
@@ -70,7 +70,7 @@ def main():
             password = input()
 
 
-            save_contacts(create_contact(f_name,l_name,p_number,e_address)) # create and save new contact.
+            save_credential(create_new_credential(user_name,site_name,account_name,password)) # create and save new contact.
             print ('\n')
             print(f"New credentials {username} {site_name} created")
             print ('\n')
@@ -95,7 +95,7 @@ def main():
                 print("Enter the name you want to search for")
 
                 search_name = input()
-                if check_existing_credentials(search_name):
+                if check_existing_credentials():
                         search_credential = find_credential(search_name)
                         print(f"{search_credential.username} {search_credential.password}")
                         print('-' * 20)
@@ -138,5 +138,6 @@ def main():
 
 
 if __name__ == '__main__':
-
     main()
+
+    
