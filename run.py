@@ -117,7 +117,7 @@ def main():
                 else:
                     print("The credential does not exist")
 
-        elif short_code == 'ce':
+        elif short_code == 'cp':
             print("Enter the credential you want to copy")
 
             search_account = input()
