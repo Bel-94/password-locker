@@ -18,6 +18,14 @@ Delete Credentials.
 You can use either a computer, phone, tablet, or any other necessary tech gadget.
 Access to internet.
 
+### How to get access to this project
+## To use this project:
+Fork this project into your github account.
+Clone the repo link from github
+Type the following command in your terminal to have the project in your local machine:
+git clone https://github.com/Bel-94/password-locker.git
+
+
 ### Technologies Used
 Python 3.8
 
