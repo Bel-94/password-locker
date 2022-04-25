@@ -49,7 +49,7 @@ def main():
     print('\n')
 
     while True:
-        print("Use these short codes : cc - create new credentials, dc - display credentials, fc -find a name, del - delete credential, ce - copy password,  ex -exit the password locker ")
+        print("Use these short codes : cc - create new credentials, dc - display credentials, fc -find a name, del - delete credential, cp - copy password,  ex -exit the password locker ")
 
         short_code = input().lower()
 

@@ -22,7 +22,7 @@ class Credential:
 
         Credential.credential_list.append(self)
         '''
-        A method for creating new deails about the user
+        A method for creating new details about the user
         '''
 
     def delete_credential(self):
