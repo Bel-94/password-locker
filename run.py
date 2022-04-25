@@ -12,13 +12,13 @@ def save_new_credential(credentials):
     '''
     Function to save newly created credentials
     '''
-    Credential.save_credential()
+    Credential.save_credential(credentials)
 
 def del_credential(credential):
     '''
     Function to delete a contact
     '''
-    Credential.delete_credential()
+    Credential.delete_credential(credential)
 
 def find_credential(name):
     '''
@@ -26,11 +26,11 @@ def find_credential(name):
     '''
     return Credential.find_by_name(name)
 
-def check_existing_credentials():
+def check_existing_credentials(name):
     '''
     Function that check if a credential exists with that name and return a Boolean
     '''
-    return Credential.credential_exist()
+    return Credential.credential_exist(name)
 
 def display_credentials():
     '''
@@ -38,8 +38,8 @@ def display_credentials():
     '''
     return Credential.display_credentials()
 
-def copy_password(number):
-    return Credential.copy_password()
+def copy_password(name):
+    return Credential.copy_password(name)
 
 def main():
     print("Hello Welcome to your password locker. What is your name?")
@@ -70,7 +70,8 @@ def main():
             password = input()
 
 
-            save_credential(create_new_credential(user_name,site_name,account_name,password)) # create and save new contact.
+            save_new_credential(create_new_credential(username,site_name,account_name,password)) # create and save new credentials.
+            print(create_new_credential(username,site_name,account_name,password))
             print ('\n')
             print(f"New credentials {username} {site_name} created")
             print ('\n')
@@ -82,7 +83,7 @@ def main():
                     print('\n')
 
                     for Credential in display_credentials():
-                            print(f"{Credential.username} {Credential.site_name} .....{Credential.password}")
+                            print(f"{Credential.username} {Credential.site_name} {Credential.account_name} {Credential.password}")
 
                     print('\n')
             else:
@@ -95,7 +96,7 @@ def main():
                 print("Enter the name you want to search for")
 
                 search_name = input()
-                if check_existing_credentials():
+                if check_existing_credentials(search_name):
                         search_credential = find_credential(search_name)
                         print(f"{search_credential.username} {search_credential.password}")
                         print('-' * 20)
@@ -119,13 +120,16 @@ def main():
         elif short_code == 'ce':
             print("Enter the credential you want to copy")
 
-            copy_password = input()
-            if check_existing_credentials(copy_password):
-                copy_password = find_credential(copy_password)
-                copy_password(copy_pass)
+            search_account = input()
+            if check_existing_credentials(search_account):
+                returned_credential = find_credential(search_account)
+                copy_password(returned_credential.site_name)
                 print("password copied successfully")
             else:
                 print("password does not exist")
+
+
+                
 
 
 
