@@ -16,13 +16,13 @@ def save_new_credential(credentials):
 
 def del_credential(credential):
     '''
-    Function to delete a contact
+    Function to delete a credential
     '''
     Credential.delete_credential(credential)
 
 def find_credential(name):
     '''
-    Function that finds a contact by number and returns the contact
+    Function that finds a credential by name and returns the credential
     '''
     return Credential.find_by_name(name)
 
